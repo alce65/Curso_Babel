@@ -1,0 +1,24 @@
+{
+  "name": "Curso_Babel",
+  "version": "1.0.0",
+  "description": "Curso Frontend en Babel, 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alce65/Curso_Babel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alce65/Curso_Babel/issues"
+  },
+  "homepage": "https://github.com/alce65/Curso_Babel#readme",
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "http-server": "^0.11.1"
+  }
+}

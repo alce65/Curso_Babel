@@ -1,0 +1,50 @@
+@import "../../node_modules/font-awesome/css/font-awesome.min.css";
+
+/*
+a - inline (0)
+b---id (0)
+c---atributos (CLASS) y pseudoclases
+d --elementos
+
+*/
+
+h1, h2{
+    color: maroon;
+}
+
+header h1 {
+    font-size: 2rem;
+} /* 0 0 0 2 */
+
+h1 {
+    font-size: 3rem;
+} /* 0 0 0 1 */ 
+
+h1.enorme {
+    font-size: 5rem
+}  /* 0 0 1 1*/
+
+header>p {
+    color: greenyellow;
+}
+
+p[lang="en"] {
+    color:firebrick;
+}
+
+/* #p1 {
+    color: lightsalmon;
+}
+
+.verde {
+    color:green;
+    font-size: 2rem;
+}
+
+p {
+    color: hotpink;
+}
+
+.grande {
+    font-size: 1.4rem
+} */
