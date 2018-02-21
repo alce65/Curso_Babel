@@ -1,0 +1,240 @@
+@import "../../node_modules/font-awesome/css/font-awesome.min.css";
+
+:root {
+    --color-principal: rgba(246,20,25,0.7);
+    --color-titulos: brown;
+    --color-fondo: beige;
+    --color-aside: papayawhip;
+}
+
+*, 
+*::before, *::after, 
+*:before, *:after { 
+    box-sizing : border-box;
+}
+
+body {
+	width: 100%;
+    max-width: 1200px;
+    min-width: 390px;
+	margin: 0em auto;
+    background-color: var(--color-fondo);
+}
+
+header, nav, footer {
+	width: 100%;
+	margin: 0em auto;
+}
+
+nav:nth-of-type(2) {
+    display: none;
+}
+
+/*------ Cabecera (Header) ------*/
+header{
+    /* class="grid_10 prefix_1 suffix_1 */
+    font-family: Arial;
+    text-align: center;
+}
+    header h1 {
+        font-size: 3rem;
+        margin-bottom: 0rem;
+    }
+
+    header p {
+        font-size: 2rem;
+        margin-top: 0rem;
+    }
+
+    div.fa {
+        display: none;
+    }
+
+    .clear {
+        width: 100%;
+        clear: both;
+    }
+
+
+/*------ Menu (Nav) ------*/
+nav {
+    border-radius: 1rem;
+    background-color: var(--color-principal);
+    overflow: auto;
+}
+
+    nav ul{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        text-align: center;
+    }
+
+    nav li{ /* class="grid_1 suffix_1" */
+        display: inline-block;
+        width: 15%;
+    }
+
+    nav a {
+        text-decoration: none;
+        color:initial;
+        display: block;
+        /*El padding determina el alto del menu*/
+        padding: 1rem;
+    }
+/*------ Seccion principal (section.main) ------*/
+
+section.main {
+	width: 60%;
+	margin: 1em 1% 0em 2%;
+	float: left;
+	clear: left;
+}
+    section.main article{
+        overflow: auto;
+    }
+
+    section.main article img {
+        width: 50%;
+    }
+        section.main article:nth-of-type(odd) img {
+            float: right;
+            padding-left: 1em;
+
+        }
+        section.main article:nth-of-type(even) img {
+            float: left;
+            padding-right: 1em;
+        }
+
+        section.main article h2 {
+            color: var(--color-titulos);
+        }
+
+/*------ Seccion adicional (aside) ------*/
+aside { /*antess 4/12 */
+    width: 34%;
+    margin: 1em 2% 0em 1%;
+    float: left;
+    clear: right;
+}
+    aside section {
+        background-color: var(--color-aside);
+        box-shadow: 3px 3px 3px 3px silver;
+    }
+
+    aside h2, h3, p{
+        padding: 0.1em 1em;
+    }
+
+    aside ul{
+        list-style-type: none;
+        padding-bottom: 0.5em;
+    }
+    
+    aside figure {
+        width: 90%;
+        margin: 0em auto;
+    }
+    
+    aside img {
+        width: 100%;
+    }
+
+
+/*------ Seccion final (footer) ------*/
+
+footer{
+    margin-top: 1em;
+    padding: 1em 0em;
+    border-radius: 5px;
+    background-color:var(--color-principal);
+    text-align: center;
+}
+
+
+@media screen and (max-width:768px) { /* tablets */
+
+    /*Sección y aside pasan a pantalla completa*/
+    section.main, aside {
+    width: auto;
+    margin: 20px 5%;
+    }
+    /*Los items del menu ocupan el 100%*/
+    
+    nav li{
+        display: inline-block;
+        width: auto;
+    }
+
+    /*En el aside, el texto y la imagen 
+    se reparten al 50%*/
+    aside article {
+        overflow: auto;
+    }
+    aside p, aside figure {
+        width: 50%;
+        float: left;
+    }
+
+    }
+
+@media screen and (max-width:480px) { /* mobile */
+
+    /*En la sección, y el aside la imagen 
+    ocupa el 100% */
+    section.main article img {
+        width: 100%;
+    }
+
+   /*  article, aside > section {
+        width: auto;
+        margin: 20px 5%;
+        }  */
+
+        
+    aside p, aside figure {
+        width: 100%;
+    }
+
+    /*El titulo se reduce*/
+
+    header {
+        font-size: 2.5rem;
+        width: 80%;
+        float: left;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    header p {
+        display: none;
+    }
+
+    header h1 {
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+   /*  El menu superior desaparece */
+    nav:nth-of-type(1) {
+        display: none;
+    }
+    div.fa {
+        display:block;
+        float: left;
+        margin-top: 1rem;
+        font-size: 3rem;
+        cursor: pointer;
+    }
+
+    nav:nth-of-type(2) {
+        display: block;
+        clear: both;
+    }
+
+    nav li {
+        display: block;
+    }
+}
+
+*/
