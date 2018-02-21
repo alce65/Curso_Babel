@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <base href="./">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sherlock Holmes</title>
+    <link rel="stylesheet" href="./css/style.css">
+  <!--   <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script type="module" src="./app/index.js"></script>
+</head>
+<body>
+
+    <div class="wraper">
+
+        <!--El elemento de HTML Header (<header>) 
+            representa un grupo de ayudas introductorias o de navegación. 
+            Puede contener algunos elementos de encabezado, pero también otros elementos 
+            como un logo, una sección que aglutine secciones de encabezados, 
+            un formulario de búsqueda o cosas parecidas. -->
+        <header>
+                <!--A no ser que exista secciones, debe considerar evitar usar <h1> más de una vez en una página;
+                    por costumbre, se usa para mostrar el título de la página, 
+                    con todos los encabezados debajo de éste comenzando con <h2>.  -->
+            <h1>Sherlock Holmes <i class="fa fa-eye"></i></h1>
+            <!--Los subtitulos no deben encabezarse como h2, sino como parrafos extra del header-->
+            <p>El "autentico" investigador privado</p>
+        </header>
+
+        <!-- El Elemento HTML Aside (<aside>) representa una sección de una página que consiste en contenido que está tangencialmente relacionado con el contenido que le rodea, que podría ser considerado independiente de ese contenido. -->
+        <aside class="add">
+            <hr>
+            <div>
+                <h2> Acerca de Conan Doyle</h2>
+                <p><strong>Arthur Ignatius Conan Doyle</strong> nació en Edimburgo, Escocia, en 1859. Fue el tercero de diez hermanos. Su familia era católica, de origen irlandés. Su padre fue funcionario, ilustrador de libros y dibujante en juicios, bebía mucho y tuvo ataques epilépticos que le llevaban periódicamente al hospital psiquiátrico. Su madre fue una mujer muy culta y aficionada a la lectura.</p>
+                <p>Se cuenta que a los 6 años escribió e ilustró su primer libro. A los 14 años aprendió francés y leyó a Julio Verne. Estudió en los jesuitas en el Stonyhurst College y la carrera de medicina entre 1876 y 1881 en la Universidad de Edimburgo. Su primera publicación es el relato <cite lang="en">The Mystery of Sasassa Valley</cite> en 1879.</p>
+            </div>
+            <hr>
+        </aside>
+
+        <!--El Elemento article de HTML (<article>) representa una composición auto-contenida 
+            en un documento, página, una aplicación o en el sitio, que se puede distribuir 
+            de forma independiente o reutilizable, por ejemplo, en la sindicación. -->
+        <article>
+            <p>Sherlock Holmes es <strong>detective asesor</strong> en Londres a finales del siglo XIX y principios del XX. El mismo se define con contundencia</p>
+            <blockquote cite="El carbunclo azul, Las aventuras de Sherlock Holmes (1982)" title="El carbunclo azul, Las aventuras de Sherlock Holmes (1982)">Me llamo Sherlock Holmes. Mi trabajo es saber lo que la gente no sabe</blockquote>
+            <p>Mide 1,80, es delgado, tiene ojos agudos y penetrantes, nariz de ave rapaz, barbilla pronunciada y maciza. Las manos manchadas de tinta y productos químicos. Viste abrigo Ulster y levita cuando sale a la calle, en casa usa bata.</p>
+            <p>No tiene estudios oficiales, aunque pasó dos años en la universidad. Dice ignorar casi todo acerca de materias tan destacadas como</p>
+            <ul class="materias">
+                <li>literatura contemporánea</li>
+                <li>filosofía</li>
+                <li>política</li>
+                <li>la astronomía</li>
+            </ul>
+            <p>Según su propia afirmación <q>no quiere ocupar su mente con conocimientos que le resulten inútiles</q>. Se interesa por las ramas más dispares y excéntricas de la ciencia de las que tienen un conocimiento detallado y preciso: química, geología, botánica, grafología. También tiene un gran interés por la literatura sensacionalista y la historia criminal. Cuando le conocemos trabaja en el laboratorio de química de un hospital. Es autor de distintas monografías: <cite>Sobre la diferencia entre las cenizas de distintas clases de tabacos</cite>, <cite>Sobre la influencia del oficio en la forma de las manos</cite>.
+            </p>
+
+            <figure class="left">
+                <img width="100%" src="./assets/Holmes_literario.jpg" alt="Holmes fumando una pipa" title="Holmes fumando una pipa">
+            </figure>
+            <p>Trabaja incansablemente durante días pero tiene periodos de abulia durante los cuales no mueve un solo músculo ni pronuncia palabra. Sólo los retos y el trabajo le apartan de la monotonía y la melancolía, el ocio le agota. En estos periodos se inyecta cocaína (o morfina). Cuando Watson le advierte sobre sus riesgos y efectos secundarios se justifica explicando que estimula y aclara su mente.</p>
+
+            <p>Su método de investigación se fundamenta en la <strong>deducción</strong> y en el <strong>análisis</strong> basado en sus amplios conocimientos y en la observación. Sorprende a interlocutores desconocidos con afirmaciones sobre su vida, sus oficios, viajes que han realizado... cuando Holmes explica los detalles y deducciones que le han llevado a esas conclusiones parece que ha recorrido un camino sencillo y lógico, elemental, pero nadie es capaz de practicar este arte con su maestría. A veces también procede por exclusión y cálculo probabilístico: cuando las otras hipótesis son imposibles la que queda es la probable aunque no haya un razonamiento lógico que la sustente. En otras ocasiones se sitúa en el mismo lugar que las personas y actúa como piensa que harían ellas en función de su inteligencia.</p>
+
+            <h2>Actividad deportiva</h2>
+            <p>Es uno de los mejores boxeadores de su categoría aunque considera el ejercicio corporal una pérdida de energía. Se mantiene en forma gracias a su dieta frugal. Hace prácticas de tiro en el interior de su casa y es esgrimista de palo y espada.</p>
+
+            <h2>Familia</h2>
+            <p>Sus antepasados pertenecían a la aristocracia del campo, su abuela era hermana de Vernet, el artista francés. Nunca habla de su familia y Watson pensaba que era huérfano hasta que Holmes le presentó a su hermano, Mycroft, 7 años mayor que él, igual de listo, pero mucho menos práctico. Mycroft es miembro del "Club Diógenes" formado por los miembros más raros e insociables de la sociedad, en sus instalaciones no se permite hablar.</p>
+
+            <h2>Otros datos</h2>
+            <ul class="otros-datos">
+                <li>Usa lupa y cinta métrica para investigar en los escenarios de los crímenes.</li>
+                <li>Es un maestro del disfraz, transformado en un anciano fatigado, un mozo de cuadra borracho, un clérigo o un enfermo agonizante es capaz de engañar hasta al propio Watson para conseguir sus objetivos.</li>
+                <li>Utiliza como fuerza policial una pandilla de 12 muchachos vagabundos, sucios y desarrapados, los irregulares de Baker Street. Su jefecillo es Wiggins.</li>
+                <li>Es sensible al halago y vanidoso. Se considera superior al Dupin de Poe y al Lecoq de Gaboriau aunque a menudo cede el protagonismo por la resolución de sus casos a la policía.
+                </li>
+                <li>Vive en el 221 B de Baker Street, Londres, en un apartamento con dos dormitorios y una sala de estar que comparte con el Dr. Watson hasta el matrimonio de este. Su casera es la señora Hudson</li>
+                <li>Maneras suaves, hábitos regulares. </li>
+                <li>Es desordenado, guarda los puros en el cubo del carbón y el tabaco en una babucha persa.</li>
+                <li>Toca bien el violín y compone pequeñas piezas, le gusta la música alemana.</li>
+            </ul>
+            
+            <h2>Sentimientos</h2>
+            <figure class="right">
+                <img width="100%" src="./assets/Sherlock_Holmes-Sidney-Paget-o-001.jpg" alt="Holmes y Watson charlando">
+            </figure>
+
+            <p> Para él el amor es un estado emotivo ajeno al razonamiento frío y sereno que valora por encima de otras cosas. Dice que no se casará para no perder el juicio. Desprecia y desconfía de las mujeres, pese a que las trata como un perfecto caballero. Sólo <span class="personaje">Irene Adler</span>, nacida en New Jersey, cantande de ópera y ex-amante del rey de Bohemia, a quien conoce en <cite>Escándalo en Bohemia</cite>, provoca su admiración. Para él siempre será "la mujer", con el rostro de la más bella mujer y la mente del más obstinado de los hombres, el único rival a su altura.</p>
+            <p>Es frío y cuando Watson le acusa de inhumano Holmes se justifica argumentando que las cualidades personales pueden desviar sus razonamientos. Aunque tiene contactos en todas las capas de la sociedad no le gusta hacer amigos.</p>
+
+            <h2>El Dr. Watson</h2>
+            <p>Su mejor amigo es <span class="personaje">John H. Watson</span>, doctor en medicina por la Universidad de Londres desde 1878. Sirvió en el ejército de la India y en Afganistán. Fue herido y enfermó de tifus. Licenciado, vuelve a Inglaterra donde no tiene amigos, ni parientes ni apenas ingresos. Tiene los nervios destrozados, se despierta a horas intempestivas.</p>
+            <p>Es el narrador de los casos de Holmes, su personaje sirve de excusa para que se nos expliquen "lentamente" sus razonamientos. Es el contrapunto perfecto al detective, tiene la humanidad que le falta a su amigo.</p>
+        </article>
+
+
+        <!--El Elemento HTML Footer (<footer>) representa un pie de página para el contenido de sección más cercano
+            o el elemento  raíz de sección en este caso <body>. 
+            Un pie de página típicamente contiene información acerca de el autor de la sección,
+            datos de derechos de autor o enlaces a documentos relacionados. -->
+        <footer>
+            <!--El elemento HTML <address> aporta información de contacto
+                para su <article> más cercano o ancestro <body>; 
+                en el último caso lo aplica a todo el documento. -->
+            <!--Para crear su contenido se ha utilizado un microfornmato hcard
+                http://microformats.org/wiki/hcard -->
+            <address>
+                <div id="hcard-Alejandro-L.-Cerezo" class="vcard">
+                    <p>
+                        <span class="fn n">
+                            <span class="given-name">Alejandro</span>
+                            <span class="additional-name">L.</span>
+                            <span class="family-name">Cerezo</span>
+                        </span> - 
+                        <a class="email" href="mailto:alce65@hotmail.es">alce65@hotmail.es</a>
+                    </p>
+                    <p>
+                        <span class="org">Keep Coding</span> - 
+                        <span class="adr">
+                            <span class="locality">Madrid</span>
+                            <span class="country-name">España</span>
+                        </span>
+                    </p>
+                </div>
+            </address>
+            <!--En HTML5, el elemento <small> se reutiliza para representar comentarios secundarios y letras pequeñas, 
+                incluidos los derechos de autor y el texto legal, independientemente de su presentación con estilo.
+                Al usarlo hay que recordar que se trata de un elemento en linea -->
+            <small>El contenido de este sitio es meramente didactico y puede ser reproducido con total libertad. 
+                Sin embargo es posible que gran parte de el corresponda a la reproducción de otros sitios 
+                sin que se indique expresamente</small>
+        </footer>
+    </div>
+</body>
+</html>
