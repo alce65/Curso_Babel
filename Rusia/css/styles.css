@@ -1,0 +1,139 @@
+@import "../../node_modules/normalize.css/normalize.css";
+
+*, 
+*::before, *::after, 
+*:before, *:after { 
+    box-sizing : border-box;
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+:root{
+    --color-main:rgba(128,0,0,1);
+}
+
+body {
+    margin-left: 10%;
+    background-color: rgb(184, 185, 138);
+    background-image: url(../images/pajaro.jpg), url(../images/fondo.jpg);
+    background-repeat: repeat-y, repeat;
+    background-size: 9%;
+}
+.wrapper {
+    max-width: 1140px;
+    margin: auto 2rem ;
+}
+
+header h1 {text-align: center;
+    font-family: fantasy;
+    font-size: 2.9rem;
+    color: var(--color-main);
+    text-shadow: 5px 5px 5px rgb(128,128,128);
+    width:80%;
+}
+
+header figure {
+    margin-left: 2%;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/Rusia2_long.jpg);
+    background-repeat: no-repeat;
+} 
+header ul {margin-top: 5%;
+    margin-right: 5%;
+    width: 20%;
+    min-width: 280px;
+    float: right;
+    border-style:double;
+    border-width: 2px 0px;
+    border-color: blue;
+    list-style-type: none;
+    background-color: rgba(0,0,250,0.5);
+    color: yellow;
+    font-weight: bold
+}
+/*La lista flota a la derecha, yendose al extremo de la pantalla;
+cuando la pantalla se acorta, se desliza sobre la imagen*/
+    header ul::after {
+        content: "";
+        position: relative;
+        top: -74px;
+        left: 100%;
+        border-right: 35px solid transparent;
+        border-top: 76px solid rgba(0,0,250,0.5);
+        border-bottom: 77px solid rgba(0,0,250,0.5);
+    }
+
+span.field_name{
+    text-decoration: underline;
+}
+article {
+    overflow: hidden;
+}
+article div {
+    width: 50%;
+    overflow: hidden;
+}
+
+    article div:nth-of-type(1) {
+        float: left;
+        clear: left;
+        opacity: 1;
+    }
+
+    article div:nth-of-type(2) {
+        float: left;
+        position: relative;
+    }
+        article div:nth-of-type(2)::before {
+            content:"";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(../images/st_basil_cathedral.png);
+            background-repeat: no-repeat;
+            background-size: 180%;
+            background-position: bottom right;
+            background-attachment: local;
+            opacity: 0.15;
+        }
+
+/*Los 2 div se comportan como 2 columnas de ancha adaptable, 
+siempre al 50% de la pantalla*/
+article figure, p {padding: 1% 5%}
+article figure {
+    width: 50%;
+    float: left;}
+article img {
+        width: 100%;
+    }
+
+    footer {
+        border-top: 1px solid var(--color-main);
+        padding-top: 1em;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+         text-align: center;
+    }
+    
+    footer address p {
+        padding: 0.2rem;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+    footer small {
+        display: block;
+        padding: 1rem;
+        font-size: 0.8rem;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
