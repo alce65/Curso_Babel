@@ -8,8 +8,13 @@ d --elementos
 
 */
 
+:root {
+    --color-principal: maroon;
+  }
+  
+
 h1, h2{
-    color: maroon;
+    color: var(--color-principal)
 }
 
 header h1 {
@@ -28,9 +33,37 @@ header>p {
     color: greenyellow;
 }
 
-p[lang="en"] {
+p[lang="en"]:hover span {
     color:firebrick;
+    font-size: 3rem
 }
+
+p[lang="en"]::first-letter {
+    font-size: 4rem;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ul::after {
+    content: "Aqui termina una lista";
+    color: plum
+}
+
+ul::before{
+    content: "Aqui empieza una lista";
+    color: plum
+
+}
+
+p:nth-child(2) {
+    color: lightsalmon;
+}
+
+p~p  {
+    color:dodgerblue;
+}
+
 
 /* #p1 {
     color: lightsalmon;
