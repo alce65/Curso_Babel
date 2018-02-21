@@ -19,6 +19,7 @@
   "homepage": "https://github.com/alce65/Curso_Babel#readme",
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "normalize.css": "^8.0.0"
   }
 }
