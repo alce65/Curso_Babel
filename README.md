@@ -36,8 +36,37 @@ Curso Frontend en Babel, 2018
 
 ### JS en la Web
 
-- Interacciones con el BOM
-- Interacciones con el DOM
-- Eventos
+- Elementos básicos e Interacciones con el BOM:
+  - Funcion Autoejecutada
+    - Evento carga inicial
+    - clase Main()
+  - Manejadores de Evento: Botones
+  - Métodos del BOM
+      - Alert
+      - Prompt: recogida de información
+      - Open-window
+      - Redimensiones
+      - Location
+
+- Elementos básicos de formulario e Interacciones con el DOM
+    - Input -> doble binding
+    - Lista de tareas
+           - Acceso al DOM; API QuerySelector
+           - Manipulación API InnerHTML
+
+Ejercicio propuesto: Quiz (Lista de reyes / Paises y Capitales ...)
+
+- Eventos visibilidad y clases. Manajadores múltiples
+  - Mostrar más info
+  - FAQs (hecho en JQuery)
+
 - Interface Web: formularios
-- Datos Asíncronos. AJAX
+  - Select Múltiple
+  - Formulario completo. Validación
+
+- Gestión de imágenes. Slider
+
+- Datos Asíncronos. AJAX mediante fetch y promesas
+  - Paises
+  - Libros
+  - Usurios: API REST
