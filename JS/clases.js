@@ -2,21 +2,22 @@
 // Esto es de "mentirijillas"
 
 class User {
-    // static numUsers
 
     constructor  (nombre, apellidos, edad, genero) {
         this.nombre = nombre
         this.apellidos = apellidos
         this.edad = edad
         this.genero = genero
-        // ++numUsers
+        ++User.prototype.numUsers
     }
         saludar () {
             console.log (` Hola, soy ${this.nombre}
-            ya somos muchos`)
-            // ${User.numUsers}
+            ya somos ${this.numUsers}`)
         }
 }
+
+//prpiedad static 
+User.prototype.numUsers = 0
 
 class Alumno extends User {
     constructor(nombre, apellidos, edad, genero, curso) {
@@ -26,8 +27,7 @@ class Alumno extends User {
 
     saludar () {
         console.log (` Hola, soy ${this.nombre}
-        ya somos muchos alumnos`)
-        // ${User.numUsers}
+        ya somos ${this.numUsers}`)
     }
 }
 
@@ -35,7 +35,7 @@ oUser1 = new User("Juan", "Lopez", 33, "H")
 oUser1.saludar()
 console.log(oUser1)
 
-oAlumno1 = new Alumno ("Juan", "Lopez", 33, "H", "Angular")
+oAlumno1 = new Alumno ("Felipe", "Martinez", 33, "H", "Angular")
 oAlumno1.notas = [9, 8, 10]
 oAlumno1.saludar()
 console.log(oAlumno1)
