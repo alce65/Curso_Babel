@@ -3,10 +3,10 @@ class Main {
 
     constructor() {
         this.user= {
-            nombre: ''
+            nombre: localStorage.getItem('nombre')
         }
         this.tarea = ""
-        this.aTareas = []
+        this.aTareas = JSON.parse(localStorage.getItem("tareas")) ? JSON.parse(localStorage.getItem("tareas")) : []
         this.vista = {
             btnReg:  document.querySelector('#btnRegistrar'),
             inNombre: document.querySelector('#nombre'),
@@ -17,26 +17,43 @@ class Main {
         }
         this.vista.btnReg.addEventListener('click',this.btnRegistrar.bind(this),false)
         this.vista.btnAdd.addEventListener('click', this.btnAdd.bind(this), false)
+        this._mostrarNombre()
+        this._mostrarTareas()
     }
+
+     _mostrarNombre () {
+         if(this.user.nombre) {
+            console.log(this.user.nombre)
+            this.vista.resultado.innerHTML =`<p>Hola ${this.user.nombre}</p>`
+            this.vista.resultado.classList.add("rojo")
+         }
+     }
+
+    _mostrarTareas() {
+         if(this.aTareas.length) {
+            let lista;
+            lista = "<ul>"
+            this.aTareas.forEach(item=>lista+=`<li>${item}</li>`)
+            lista += "</ul>"
+            this.vista.tareas.innerHTML = lista
+         }
+     }
 
     btnRegistrar() {
         console.log(this.user.nombre)
          this.user.nombre = this.vista.inNombre.value
-         console.log(this.user.nombre)
-         this.vista.resultado.innerHTML =`<p>Hola ${this.user.nombre}</p>`
-         this.vista.resultado.classList.add("rojo")
+         localStorage.setItem("nombre",  this.user.nombre)
+         this._mostrarNombre()
      }
 
      btnAdd() {
-         let lista;
+
          this.tarea = this.vista.inTarea.value
          this.aTareas.push( this.tarea)
-         lista = "<ul>"
-         this.aTareas.forEach(item=>lista+=`<li>${item}</li>`)
-         lista += "</ul>"
-         this.vista.tareas.innerHTML = lista
-
+         localStorage.setItem("tareas", JSON.stringify(this.aTareas))
+         this._mostrarTareas()
      }
+
 
 }
 
