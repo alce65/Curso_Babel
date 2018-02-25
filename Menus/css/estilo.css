@@ -1,0 +1,154 @@
+*, 
+*::before, *::after, 
+*:before, *:after { 
+    box-sizing : border-box;
+}
+
+body {
+	width: 100%;
+	max-width: 960px;
+    min-width: 480px;
+	margin: 0em auto;
+    overflow: auto;
+    background-color: beige;
+}
+
+header, nav{
+	width: 100%;
+	margin: 0em auto;
+}
+
+/*------ Cabecera (Header) ------*/
+header{
+    /* class="grid_10 prefix_1 suffix_1 */
+    font-family: Arial;
+    text-align: center;
+}
+    header h1 {
+        font-size: 3em;
+        margin-bottom: 0em;
+    }
+
+/*------ Todos los Menus (Nav) ------*/
+nav {
+    border-radius: 5px;
+    background-color: rgba(246,20,25,0.7);
+}
+/* La lista se resetea, incluyendo list-style*/
+nav ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+/*Los hiperenlaces son bloques con padding:
+ auementan la superficie "atacable por el usuario" */
+ nav a {
+    text-decoration: none;
+    color:initial;
+    display: block;
+    padding: 1rem 2rem;
+    border: 1px solid  rgb(246,20,25);
+    white-space: nowrap;
+}
+
+/*------ Menu basado en inline-block (Nav) ------*/
+
+    nav:nth-of-type(1) li{ /* class="grid_1 suffix_1" */
+        display: inline-block;
+        width: 15%;
+    }
+
+/*------ Menu  basado en float (Nav) ------*/
+
+nav:nth-of-type(2) ul{
+    margin: 0px auto;
+}
+
+/* ancho 15* 5 = 75
+margen izdo al primer li : 12,5
+*/
+nav:nth-of-type(2) li{
+    width: 15%;
+    float: left;
+}
+nav:nth-of-type(2) li:nth-of-type(1){
+   margin-left: 12.5%;
+}
+
+nav:nth-of-type(2) ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*------ Menu  3 (Nav) ------*/
+
+nav:nth-of-type(3) ul{
+    display: flex;
+    justify-content: center;
+}
+nav:nth-of-type(3) li{
+    width: 15%;
+}
+
+/*------ Menu  3 (Nav) ------*/
+
+nav:nth-of-type(4) ul{
+    display: grid;
+    grid-column-gap: 2px;
+    grid-template-columns: 12.5% 1fr 1fr 1fr 1fr 1fr 12.5%;
+}
+
+nav:nth-of-type(4) ul::before,
+nav:nth-of-type(4) ul::after
+{
+    content: "";
+    display: block;
+}
+
+
+
+
+@media screen and (max-width:820px)
+{
+    nav {
+    background-color: rgba(201, 156, 157, 0.7);
+    }
+    nav:nth-of-type(1) li{ /* class="grid_1 suffix_1" */
+        /* width: 15%; */
+        width: auto;
+    }
+
+    nav:nth-of-type(2) li{
+        /* width: 15%; */
+        width: auto;
+        float: left;
+    }
+
+}
+
+@media screen and (max-width:690px){
+    nav:nth-of-type(2) li:nth-of-type(1){
+        /*  margin-left: 12.5%; */
+         margin-left: 6%;
+    }
+}
+
+@media screen and (max-width:640px)
+{
+    nav {
+        background-color: rgba(99, 57, 58, 0.7);
+        }
+
+    nav a {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    nav:nth-of-type(2) li:nth-of-type(1){
+        /*  margin-left: 12.5%; */
+         margin-left: 0%;
+    }
+}
+

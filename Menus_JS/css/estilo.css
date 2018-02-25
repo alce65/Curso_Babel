@@ -1,0 +1,77 @@
+*, 
+*::before, *::after, 
+*:before, *:after { 
+    box-sizing : border-box;
+}
+
+body {
+	width: 100%;
+	max-width: 960px;
+    min-width: 480px;
+	margin: 0em auto;
+    overflow: auto;
+    background-color: beige;
+}
+
+header, nav{
+	width: 100%;
+	margin: 0em auto;
+}
+article {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*------ Cabecera (Header) ------*/
+header{
+    /* class="grid_10 prefix_1 suffix_1 */
+    font-family: Arial;
+    text-align: center;
+}
+    header h1 {
+        font-size: 3em;
+        margin-bottom: 0em;
+    }
+
+/*------ Todos los Menus (Nav) ------*/
+nav {
+    border-radius: 5px;
+    background-color: rgba(246,20,25,0.7);
+}
+/* La lista se resetea, incluyendo list-style*/
+nav ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+/*Los hiperenlaces son bloques con padding:
+ auementan la superficie "atacable por el usuario" */
+ nav a {
+    text-decoration: none;
+    color:initial;
+    display: block;
+    padding: 1rem 2rem;
+    border: 1px solid  rgb(246,20,25);
+    white-space: nowrap;
+}
+
+
+/*------ Menu  3 (Nav) ------*/
+
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav li{
+    width: 15%;
+}
+
+@media screen and (max-width:640px)
+{
+   nav a {
+        padding-left: 0.5rem;
+        padding-right: 1rem;
+    }
+}
+
