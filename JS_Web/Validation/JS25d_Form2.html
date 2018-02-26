@@ -1,0 +1,295 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario - JavaScript</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  	<link rel="stylesheet" href="default.css">
+    <style>
+        span.error { color: red;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+
+        function validaNombre() {
+            // fallback para validación del nombre (sólo en ausencia de HTML5)
+            var oNodo = document.getElementById("Nombre") ;
+            if (oNodo.value.length == 0) {
+                oNodo.nextSibling.nextSibling.innerHTML = "Debe completar el Nombre";
+                oNodo.focus();
+                return false;
+            }
+            else {
+                oNodo.nextSibling.nextSibling.innerHTML = "";
+                return true;
+            }
+        }
+
+        function validaApellidos() {
+            // fallback para validación del apellido (sólo en ausencia de HTML5)
+            var oNodo = document.getElementById("Apellidos");
+            if (!oNodo.value.match(/^[A-ZÑ]+([A-ZÑa-zñ_]+)$/)) {
+                oNodo.nextSibling.nextSibling.innerHTML = "Apellido incorrecto"
+                oNodo.focus();
+                return false;
+            }
+            else {
+                oNodo.nextSibling.nextSibling.innerHTML = " ";
+                return true;
+            }
+        }
+
+        function validaCorreo() {
+            // fallback para validación del correo (sólo en ausencia de HTML5)
+            var oNodo = document.getElementById("Correo");
+            if (// document.getElementById("correo").value.length ==  0 ||
+                !oNodo.value.match(/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/)) {
+                oNodo.nextSibling.nextSibling.innerHTML = "Debe completar el Correo";
+                oNodo.focus();
+                return false;
+            }
+            else {
+                oNodo.nextSibling.nextSibling.innerHTML = " ";
+                return true;
+            }
+        }
+
+        function validaPassw() {
+            oNodo1 = document.getElementById("Clave1")
+            oNodo2 = document.getElementById("Clave2")
+
+            if (Modernizr.input.required) {
+                // funcion manejadorea del evento oninput de Clave2 (sólo con HTML5)
+                var msg = "";			        
+                if (oNodo1.value != oNodo2.value) {
+                    msg = "Las contraseñas no coinciden" 
+                }
+                oNodo2.setCustomValidity(msg)
+                return;
+            }
+
+            // fallback para validación de las contraseñas (sólo en ausencia de HTML5)
+            if (oNodo1.value != oNodo2.value ||
+                !oNodo1.value.match(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)) {
+                oNodo1.nextSibling.nextSibling.innerHTML = "Debe introducir una clave correcta";
+                oNodo1.focus();
+                return false;
+            }
+            else {
+                oNodo1.nextSibling.nextSibling.innerHTML = " ";
+                return true;
+            }
+        }
+
+        function validaCheck1() {
+            // fallback para validación del nombre (sólo en ausencia de HTML5)
+            oNodo = document.getElementById("condiciones");
+            if (!oNodo.checked) { // checkBox no seleccionado
+                oNodo.nextSibling.nextSibling.innerHTML = "Debe aceptar las condiciones";
+                oNodo.focus();
+                return false;
+            }
+            else {
+                oNodo.nextSibling.nextSibling.innerHTML = " ";
+                return true;
+            }
+        }
+
+        function escribeDatos(oDatos) {
+            var oLista = document.getElementById("listaDatos"); // referencia del párrafo donde escribir
+
+            if (Modernizr.input.required) {
+                // sólo en HTML5
+                //ocultar formulario (incompatible con IE8)
+                document.getElementById("form_1").classList.add("oculto")
+                //mostrar bloque div para el resultado (incompatible con IE8)
+                document.getElementById("resultado").classList.remove("oculto");
+                // limpiar el nodo <ul> donde se presentarán los datos
+                oLista.innerHTML = "";
+                //incorporamos a la lista cada elemento del objeto ()error de ejecucion en IE8		
+                for (var i in oDatos) {
+                    var x = "<li>" + i + ": <strong>" +
+                        oDatos[i] + "</strong></li>";
+                    oLista.innerHTML += x;
+                };
+            } else {
+                // fallback para validación del nombre (sólo en ausencia de HTML5)
+                document.getElementById("resultado").className = "";
+                oLista.innerHTML = "";
+                //incorporamos a la lista cada elemento del objeto		
+                for (var i in oDatos) {
+
+                    // Crear nodo de tipo li
+                    var item = document.createElement("li");
+                    // Crear nodo de tipo Text
+                    var contenido = document.createTextNode(i + ": " + oDatos[i]);
+                    // Añadir el nodo Text como hijo del nodo Element
+                    item.appendChild(contenido);
+                    // Añadir el nodo Element como hijo de la pagina
+                    oLista.appendChild(item);
+                };
+            }
+            return false;
+        }
+
+        function recogeDatos(oEvent) {
+            if (!Modernizr.input.required) {
+                // Solo si NO estamos el HTML5 
+                // se realizan las validaciones "fallback"
+                if (!validaNombre() || !validaApellidos() || !validaCorreo() || !validaPassw() || !validaCheck1()) {
+                    return false;
+                }
+            } else {
+                oEvent.preventDefault();
+            }
+            
+            // Si las validaciones son correctas se continua la lectura de los datos
+            var oDatos = {};
+            var inputs = document.querySelectorAll("input[type='text']")
+            for (var i = 0; i < inputs.length; i++) {
+                oDatos[inputs[i].name] = inputs[i].value;
+            }
+            oDatos.Comentarios = document.getElementById("Comentarios").value;
+            oDatos.Correo = document.getElementById("Correo").value;
+            oDatos.Clave = document.getElementById("Clave1").value;
+            //radiobuttons
+            var aJoomla = document.getElementsByName("pregunta");
+            oDatos["Preparado para dar Joomla!"] = "";
+            for (var i = 0; i < aJoomla.length; i++) {
+                if (aJoomla[i].checked) {
+                    oDatos["Preparado para dar Joomla!"] = aJoomla[i].value.toUpperCase();
+                }
+            }
+            //checkbox
+            oDatos["Condiciones leidas"] = (document.getElementById("condiciones").checked) ? "SI" : "NO";
+            //select options
+            var nSelect = document.getElementById("opciones").selectedIndex;
+            var sOpcion = document.getElementById("opciones").options[nSelect];
+            oDatos["Nivel de JavaScript"] = sOpcion.text;
+            //llamada a la función que procesara el arry presentandolo en pantalla
+            return escribeDatos(oDatos);
+
+        }
+
+
+        function main() {
+            document.getElementById("Nombre").focus();
+            if (Modernizr.input.required) {
+                // en modo HTML%
+                document.getElementById('form_1').addEventListener("submit", recogeDatos)
+                document.getElementById("Clave2").oninput = validaPassw
+               //  document.getElementById("Clave2").addEventListener("input", validaPassw )
+            } else {
+                // en modo no HTML5 se activa la comprobación cada vez que se utiliza un control del formulario
+                document.getElementById("submit").onclick = recogeDatos;
+               // document.getElementById("Correo").onblur = validaCorreo;
+               //document.getElementById("Clave2").onblur = validaPassw
+               //document.getElementById("Nombre").onblur = validaNombre;
+               //document.getElementById("Apellidos").onblur = validaApellidos;
+            }            
+        }
+
+        if (document.addEventListener) {
+            document.addEventListener("DOMContentLoaded", main, false);
+            //metodo de DOM nivel 2  que indica al agente de usuario que permanezca atento:
+            // evento: en este caso la carga completa de la página
+            // función a lanzar: en este caso iniciaBoton
+            // orden del flujo de eventos: false salta la fase de captura
+        } else {
+            window.onload = main;
+        }
+    </script>
+</head>
+
+ <body>
+ <div class="container">
+
+ 
+  	<header>
+  	<h1 title="Formulario 1">
+  		Inscripción como docente (Microfórum)
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<form  name="form_1" id="form_1">
+ 			
+ 			<fieldset><legend>Identificación</legend>
+   			    <p><label for="Correo">Cuenta de correo</label>
+    			    <input type="email" title="Introduzca su dirección de correo" maxlength="50"  placeholder="cuenta@dominio.com" name="Correo" id="Correo" required>
+                    <span id="errorCorreo" class="error"> </span></p>
+                <p><label for="Clave1">Introduzca su clave de acceso</label>
+                    <input id="Clave1" maxlength="12" name="Clave1" type="password" required
+                           pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
+                         <span id="errorClave" class="error"> </span></p>
+   			    <p><label for="Clave2">Repita la clave de acceso</label>
+                       <input id="Clave2" maxlength="12" name="Clave2" type="password" required
+                              pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" /></p>
+  			</fieldset> 		  	
+ 		  	<fieldset><legend>Datos personales</legend>
+		  	    <p><label for="Nombre">Nombre:</label>
+                  <input type="text" id="Nombre" name="Nombre" size="30" placeholder="Escriba su nombre" required>
+                  <span id="errorFName" class="error"> </span></p>
+	      	    <p><label for="Apellidos">Apellido:</label>
+                    <input type="text" id="Apellidos" name="Apellidos" maxlength="100" placeholder="Escriba sus apellidos" required>
+                    <span id="errorApell" class="error"> </span></p>      
+	      	    <p><label for="Domicilio">Domicilio:</label>
+                    <input type="text" id="Domicilio" name="Domicilio" maxlength="200" placeholder="Escriba su dirección"></p>
+	    	    <p><label for="city">Ciudad:</label>
+	    		    <input type="text" id="Ciudad" name="Ciudad" placeholder="Escriba su ciudad"></p> 
+			    <p><label class="top" for="Comentarios">Comentarios:</label>
+                    <textarea id="Comentarios" name="Comentarios" placeholder="Escriba los comentarios que consideres oprtunos"> </textarea></p>
+			</fieldset>	
+			<fieldset><legend>Datos técnicoss</legend>
+		  	    <p><label class="long" for="pregunta">¿Estas preparado para dar un curso de Joomla!?</label>	
+			        <input type="radio" value="si" name="pregunta" id="pregunta_si"/> SI
+			        <input type="radio" value="no" name="pregunta" id="pregunta_no"/> NO
+			        <input type="radio" value="nsnc" name="pregunta" id="pregunta_nsnc"/> NS/NC
+			    </p>
+                <p>
+                    <label class="long" for="opciones">Tu nivel de JavaScript es</label>
+                    <select id="opciones" name="opciones">
+                        <option value="1">Muy Alto</option>
+                        <option value="2">Alto</option>
+                        <option value="3">Medio</option>
+                        <option value="4">Bajo</option>
+                    </select>
+                </p>
+			    <p>
+			        <input type="checkbox"  id="condiciones" value="condiciones" name="condiciones" required>
+			        <label class ="long" for="condiciones">He leído y acepto las condiciones de trabajo</label>
+                    <span id="errorCondiciones" class="error"> </span>
+			    </p>
+			</fieldset>
+			<fieldset>
+			    <p><label></label>
+                    <input id="submit" type="submit" value="Aceptar"> &nbsp; 
+				    <input id="reset" type="reset" value="Borrar"></p>
+			</fieldset>
+		</form>
+		<div id="resultado" class="oculto">
+			<h2>Los datos del usuario son los siguientes</h2>			
+		    <p id="listaDatos"> </p>
+		</div>	
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+</div>
+ </body>
+
+</html>

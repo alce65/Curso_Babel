@@ -1,0 +1,113 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario - JavaScript</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="./css/style.css">
+  	<style type="text/css">
+  		.oculto {display: none;}
+  		.bloque {display: block;}
+  	</style>
+  	<script src="./app/app.js"></script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+  	<header>
+  	<h1 title="Formulario 1">
+  		Inscripción como docente (Microfórum)
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+		
+
+
+
+        <form name="form_1" id="form_1" method="post" action="http:\\localhost">
+            <fieldset>
+                <legend>Datos personales</legend>
+                <p>
+                    <label for="Nombre">Nombre:</label>
+                    <input type="text" id="Nombre" name="Nombre" size="30" placeholder="Escriba su nombre">
+                </p>
+                <p>
+                    <label for="apell">Apellido:</label>
+                    <input type="text" id="Apellidos" name="Apelidosl" size="30" maxlength="100" placeholder="Escriba sus apellidos">
+                </p>
+                <p>
+                    <label for="address">Domicilio:</label>
+                    <input type="text" id="Direccion" name="Direccion" size="30" maxlength="200" placeholder="Escriba su dirección">
+                </p>
+                <p>
+                    <label for="city">Ciudad:</label>
+                    <input type="text" id="Ciudad" name="Ciudad" placeholder="Escriba su ciudad">
+                </p>
+                <p>
+                    <label class="top" for="coment">Comentarios:</label>
+                    <textarea id="coment" name="coment" placeholder="Escriba los comentarios que consideres oprtunos"></textarea>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos técnicoss</legend>
+                <p>
+                    <label class="long">¿Estas preparado para dar un curso de Joomla!?</label>
+                    <label><input type="radio" value="si" name="pregunta" id="pregunta_si" /> SI</label>
+                    <input type="radio" value="no" name="pregunta" id="pregunta_no" /> NO
+                    <input type="radio" value="nsnc" name="pregunta" id="pregunta_nsnc" /> NS/NC
+                </p>
+                <p>
+                    <input type="checkbox" id="condiciones" value="condiciones" name="condiciones">
+                    <label class="long" for="condiciones">He leído y acepto las condiciones del contrato</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="condiciones_1" value="condiciones_1" name="condiciones_1">
+                    <label class="long" for="condiciones_1">He leído y acepto las condiciones de confidencialidad</label>
+                </p>
+                <p>
+                    <label class="long" for="opciones">Tu nivel de JavaScript es</label>
+                    <select id="opciones" name="opciones">
+                        <option value="1">Muy Alto</option>
+                        <option value="2">Alto</option>
+                        <option value="3">Medio</option>
+                        <option value="4">Bajo</option>
+                    </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <p><label></label>
+                    <input id="submit" type="submit" value="Aceptar"> &nbsp;
+                    <input id="reset" type="reset" value="Borrar">
+                </p>
+            </fieldset>
+        </form>
+		<div id="resultado" class="oculto">
+			<h2>Los datos del usuario son los siguientes</h2>			
+		<ul id="parrafo_1"> </ul>
+		</div>	
+
+ 		<script>
+   			//<!--document.write("Hola Mundo");
+			//-->
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>
