@@ -8,7 +8,7 @@ export class Main {
         this.vista.aBtnsMenu.forEach( (item) => {
             item.addEventListener('click',this.menuItems.bind(this),false)
         })
-        this.vista.eArticle.innerHTML = '<h2>INICIO</h2>'
+        // this.vista.eArticle.innerHTML = '<h2>INICIO</h2>'
     }
 
     menuItems(oEv) {
