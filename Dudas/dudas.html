@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dudas y pruebas</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        addEventListener("DOMContentLoaded", () => {
+            let elem = document.querySelector("h1")
+            console.dir(elem)
+        },false)
+    </script>
+</head>
+<body>
+    <h1>Dudas y pruebas</h1>
+
+    <!-- This sets the label's text to the textbox value on each keystroke. -->
+        <div>
+            <h2>Ejemplo con el evento <b>input</b></h2>
+            <label id="lbl">Dinos tu nombre<label>
+            <input type="text" oninput="setSaludo(this);">
+            <p id="saludo"></p>
+        </div>
+        <div>
+            <h2>Ejemplo con el evento <b>keypress</b></h2>
+            <label id="lbl">Dinos tu nombre<label>
+            <input type="text" onkeypress="setSaludoK(this);">
+            <p id="saludo2"></p>
+        </div>
+        <div>
+            <h2>Ejemplo con el evento <b>keyup</b></h2>
+            <label id="lbl">Dinos tu nombre<label>
+            <input type="text" onkeypress="setSaludoKu(this);">
+            <p id="saludo3"></p>
+        </div>
+        
+        <script>
+            function setSaludo(txtBox){
+                console.dir(txtBox)
+                document.querySelector('#saludo').innerHTML = `Hola ${txtBox.value}`
+            }
+            function setSaludoK(txtBox){
+                console.dir(txtBox)
+                document.querySelector('#saludo2').innerHTML = `Hola ${txtBox.value}`
+            }
+            function setSaludoKu(txtBox){
+                console.dir(txtBox)
+                document.querySelector('#saludo3').innerHTML = `Hola ${txtBox.value}`
+            }            
+        </script>
+</body>
+</html>
