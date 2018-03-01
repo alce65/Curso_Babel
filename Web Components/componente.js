@@ -7,8 +7,16 @@ class AppSample extends HTMLElement  {
         const elem = oImport.querySelector('#temp1')
         //const elem = document.querySelector('#temp1')
         console.log(elem)
-        this.attachShadow({mode: 'open'}).innerHTML = elem.innerHTML
+        let shadow = this.attachShadow({mode: 'open'})
+        shadow.innerHTML = elem.innerHTML
+
+        let boton = shadow.querySelector("#saludar")
+        boton.addEventListener("click", this.saludar.bind(this))
     }
+
+    saludar() {
+        console.log("Hola")
+    } 
 }
 
 customElements.define('app-sample', AppSample)
