@@ -3,4 +3,33 @@
         <h2>Catálogo</h2>
         <p>Esto es el catálogo de las publicaciones disponibles</p>
     </article>
+    <button id="cat" onclick="saludar()">Catalogo</button>
 </template>
+
+<script>
+    // console.log(this) -> window
+    console.info("El script del catalogo")
+    //-----------------------------------------------------------------------------
+    let template = document.currentScript.ownerDocument.querySelector("template")
+    console.log("Template")
+    console.dir(template)
+    let boton = template.content.querySelector("#cat")
+    console.dir(boton)
+    boton.style.color = "red"
+
+    // El boton aparecerá rojo, demostrando que accedemos a él sin problema.
+    // Sin embargo no podemos definir el manejador de eventos,
+    // por una limitación en la especificación del Import 
+    // https://www.w3.org/TR/html-imports/#events-imports
+    boton.addEventListener('click', () => {
+        console.log("Hola soy el addeventlistener del boton del catalogo")
+    })
+
+    // Por el contrario un manejado de evento 
+    // definido a traves de un atributo "event handler content"
+    // responde sin problemas al evento
+    function saludar() {
+        console.log("Hola soy el onclick del boton del catalogo")
+    }
+</script>
+

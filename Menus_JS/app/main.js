@@ -1,6 +1,7 @@
 export class Main {
     constructor() {
         console.log("Main loaded")
+
         this.vista = {
             aBtnsMenu: document.querySelectorAll('a'),
             eMain : document.querySelector('main'), 
@@ -16,6 +17,7 @@ export class Main {
         this.vista.aImports.forEach( (elem)  => {
             this.vista.oImports[elem.title]=elem.import
         })
+
         console.log(this.vista.oImports)
         this._cargarTemplate('inicio')
     }
@@ -42,8 +44,38 @@ export class Main {
         const ELEM = IMPORT.querySelector(`#${id}`)
         console.log(`#${id}`)
         console.log(ELEM)
-        // el HTML del elemnto se añade en el punto adecuado
-        this.vista.eMain.innerHTML = ELEM.innerHTML
+
+        if (id == 'acerca_de') {
+            this._prepararAbout(ELEM)
+        } else {
+            // el HTML del elemnto se añade en el punto adecuado
+            this.vista.eMain.innerHTML = ELEM.innerHTML
+        }
     }
 
+    _prepararAbout(elem) {
+        console.clear()
+        // Con elem accedo al template del import "acerca de"
+        console.log(elem)
+        
+        // accedo dentro del template a su contenido
+        // y dentro de el al boton
+        let eBoton = elem.content.querySelector("#saludar")
+        console.dir(eBoton)
+        // La aplicación de estilo demuestra que accedemos al boton
+        eBoton.style.color="red"
+
+        // Sin embargo la gestion del clc del boton desde aqui
+        // es imposible por una limitación en la especificación del Import 
+        // https://www.w3.org/TR/html-imports/#events-imports
+        eBoton.addEventListener('click', this._saludar.bind(this), true)
+ 
+        // el HTML del elemnto se añade en el punto adecuado
+        this.vista.eMain.innerHTML = elem.innerHTML
+
+    }
+
+    _saludar() {
+        console.log("Hola, soy el botón")
+    }
 }
